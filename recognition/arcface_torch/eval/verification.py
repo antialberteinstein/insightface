@@ -28,11 +28,16 @@ import datetime
 import os
 import pickle
 
-import mxnet as mx
+try:
+    import mxnet as mx
+    from mxnet import ndarray as nd
+except ImportError:
+    mx = None
+    nd = None
+
 import numpy as np
 import sklearn
 import torch
-from mxnet import ndarray as nd
 from scipy import interpolate
 from sklearn.decomposition import PCA
 from sklearn.model_selection import KFold
